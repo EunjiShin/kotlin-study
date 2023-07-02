@@ -1,7 +1,19 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    // 계산기 객체 생성
+    val calculator = Calculator();
+
+    // 무한 반복
+    while(true) {
+
+        // 입력 받고
+
+        // 조건문
+
+        // -1 입력하기 전까지 계속 반복
+
+        // 계산 결과 리턴
+
+    }
+
 }
