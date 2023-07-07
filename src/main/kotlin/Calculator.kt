@@ -22,24 +22,19 @@ class Calculator {
         return num ?: 0
     }
 
-    fun add(a: Int, b: Int): Int {
-        return a + b
-    }
+    fun add(a: Int, b: Int): Int = a + b
 
-    fun subtract(a: Int, b: Int): Int {
-        return a - b
-    }
+    fun subtract(a: Int, b: Int): Int = a - b
 
-    fun multiply(a: Int, b: Int): Int {
-        return a * b
-    }
+    fun multiply(a: Int, b: Int): Int = a * b
 
-    fun divide(a: Int, b: Int): Int? {
-        if (b == 0) {
+    fun divide(a: Int, b: Int): Int? =
+        if (b != 0) {
+            a / b
+        } else {
             println("0으로 나눌 수 없습니다.")
-            return null
+            null
         }
-        return a / b
-    }
+
 
 }
