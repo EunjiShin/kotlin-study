@@ -10,6 +10,18 @@ class Calculator {
         println("=================")
     }
 
+    fun printNotice(menu: Int) {
+        if (menu !in listOf(1, 2, 3, 4, -1)) {
+            println("입력한 값은 유효한 숫자가 아닙니다.")
+        }
+    }
+
+    fun getInput(): Int {
+        println("숫자를 입력해주세요.")
+        val num = readLine()?.toIntOrNull()
+        return num ?: 0
+    }
+
     fun add(a: Int, b: Int): Int {
         return a + b
     }
@@ -22,11 +34,12 @@ class Calculator {
         return a * b
     }
 
-    fun divide(a: Int, b: Int): Float {
+    fun divide(a: Int, b: Int): Int? {
         if (b == 0) {
-            throw IllegalArgumentException("cannot divide by 0");
+            println("0으로 나눌 수 없습니다.")
+            return null
         }
-        return a.toFloat() / b.toFloat()
+        return a / b
     }
 
 }
