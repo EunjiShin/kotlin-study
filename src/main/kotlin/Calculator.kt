@@ -18,7 +18,7 @@ class Calculator {
 
     fun getInput(): Int {
         println("숫자를 입력해주세요.")
-        val num = readLine()?.toIntOrNull()
+        val num = readln().toIntOrNull()
         return num ?: 0
     }
 
