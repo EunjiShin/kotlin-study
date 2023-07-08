@@ -1,33 +1,26 @@
 fun main(args: Array<String>) {
 
     // 계산기 객체 생성
-    val calculator = Calculator();
+    val calculator = Calculator()
 
-    // 무한 반복
-    while(true) {
+    // 무한반복 돌면서 연산 수행 -> -1 입력하면 종료
+    generateSequence { calculator.printMenu(); readln().toInt() }
+        .takeWhile { it != -1 }
+        .forEach { menu ->
+            calculator.printNotice(menu)
 
-        // 메뉴 출력
-        calculator.printMenu()
-        val menu = readln().toInt()
-        calculator.printNotice(menu)
+            val firstNum = calculator.getInput()
+            val secondNum = calculator.getInput()
 
-        if (menu == -1) break;
+            val result = when (menu) {
+                1 -> calculator.add(firstNum, secondNum)
+                2 -> calculator.subtract(firstNum, secondNum)
+                3 -> calculator.multiply(firstNum, secondNum)
+                4 -> calculator.divide(firstNum, secondNum)
+                else -> null
+            }
 
-        // 입력 받고
-        val firstNum = calculator.getInput()
-        val secondNum = calculator.getInput()
-
-        // 조건문
-        var result: Int? = 0
-        when(menu) {
-            1 -> result = calculator.add(firstNum, secondNum)
-            2 -> result = calculator.subtract(firstNum, secondNum)
-            3 -> result = calculator.multiply(firstNum, secondNum)
-            4 -> result = calculator.divide(firstNum, secondNum)
+            result?.let { println("결과는 $it 입니다.") }
         }
-
-        println("결과는 $result 입니다.")
-
-    }
 
 }
